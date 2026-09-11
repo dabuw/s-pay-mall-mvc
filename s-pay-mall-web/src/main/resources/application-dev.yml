@@ -7,3 +7,21 @@ server:
       min-spare: 10
     accept-count: 10
 
+# 微信公众号对接
+weixin:
+  config:
+    originalid: gh_f81ffc22a71a
+    token: b8b6
+
+    # 日志
+    logging:
+      level:
+        root: info
+      config: classpath:logback-spring.xml
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/s-pay-mall?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: "1234"
+    driver-class-name: com.mysql.cj.jdbc.Driver
