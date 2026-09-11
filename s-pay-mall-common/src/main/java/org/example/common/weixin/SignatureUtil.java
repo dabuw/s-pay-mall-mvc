@@ -1,4 +1,4 @@
-package org.example.common;
+package org.example.common.weixin;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
