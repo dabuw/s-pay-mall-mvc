@@ -17,6 +17,17 @@ weixin:
     app-secret: ${WEIXIN_APP_SECRET}
     template_id: SUCgQgXEYgIB680j_Kx9CU4sPTDIpBpWF9NQDefqc0c
 
+# 支付宝支付 - 沙箱 https://opendocs.alipay.com/common/02kkv7
+alipay:
+  enabled: true
+  app_id: 9021000166625040
+  merchant_private_key: ${ALIPAY_MERCHANT_PRIVATE_KEY}
+  alipay_public_key: ${ALIPAY_PUBLIC_KEY}
+  notify_url: http://xfg-studio.natapp1.cc/api/v1/alipay/pay_notify
+  return_url: https://gaga.plus
+  gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+
+
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   configuration:
