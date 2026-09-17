@@ -18,12 +18,13 @@ weixin:
     template_id: SUCgQgXEYgIB680j_Kx9CU4sPTDIpBpWF9NQDefqc0c
 
 # 支付宝支付 - 沙箱 https://opendocs.alipay.com/common/02kkv7
+# 沙箱控制台：https://open.alipay.com/develop/sandbox/app
 alipay:
   enabled: true
   app_id: 9021000166625040
   merchant_private_key: ${ALIPAY_MERCHANT_PRIVATE_KEY}
   alipay_public_key: ${ALIPAY_PUBLIC_KEY}
-  notify_url: http://xfg-studio.natapp1.cc/api/v1/alipay/pay_notify
+  notify_url: http://xfg-studio.natapp1.cc/api/v1/alipay/alipay_notify_url
   return_url: https://gaga.plus
   gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
 
@@ -45,6 +46,8 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-init-sql: SET time_zone = '+08:00'
     initialSize: 5
     minIdle: 5
     maxActive: 20
