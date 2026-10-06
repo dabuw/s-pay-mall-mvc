@@ -24,6 +24,7 @@ services:
     environment:
       - TZ=PRC
       - SERVER_PORT=8080
+      - SPRING_PROFILES_ACTIVE=prod
     volumes:
       - ./log:/data/log
     logging:
