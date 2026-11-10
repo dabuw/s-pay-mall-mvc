@@ -45,7 +45,7 @@ public class AliPayController {
     @RequestMapping(value = "create_pay_order", method = RequestMethod.POST)
     public Response<String> createPayOrder(@RequestBody CreatePayRequestDTO createPayRequestDTO) {
         try {
-            log.info("商品下单，根据商品ID创建支付单开始 userId:{} productId:{}", createPayRequestDTO.getUserId(), createPayRequestDTO.getUserId());
+            log.info("商品下单，根据商品ID创建支付单开始 userId:{} productId:{}", createPayRequestDTO.getUserId(), createPayRequestDTO.getProductId());
             String userId = createPayRequestDTO.getUserId();
             String productId = createPayRequestDTO.getProductId();
             // 下单
@@ -70,7 +70,7 @@ public class AliPayController {
     }
 
     /**
-     * http://xfg-studio.natapp1.cc/api/v1/alipay/alipay_notify_url
+     * https://mall.dabuw.online/api/v1/alipay/alipay_notify_url
      */
     @RequestMapping(value = "alipay_notify_url", method = RequestMethod.POST)
     public String payNotify(HttpServletRequest request) throws AlipayApiException {

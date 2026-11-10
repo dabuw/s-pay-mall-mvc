@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.domain.req.ShopCartReq;
+import org.example.domain.res.OrderDetailRes;
 import org.example.domain.res.PayOrderRes;
 
 import java.util.List;
@@ -21,5 +22,11 @@ public interface IOrderService {
     List<String> queryTimeoutCloseOrderList();
 
     boolean changeOrderClose(String orderId);
+
+    /** 查询单个订单 */
+    OrderDetailRes queryOrder(String orderId);
+
+    /** 查询订单列表，userId 为空时返回全部 */
+    List<OrderDetailRes> queryOrderList(String userId);
 
 }

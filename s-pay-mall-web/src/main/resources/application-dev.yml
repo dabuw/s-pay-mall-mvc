@@ -14,7 +14,7 @@ weixin:
     originalid: gh_f81ffc22a71a
     token: b8b6
     app-id: wxeb9d832b7cde6b57
-    app-secret: ${WEIXIN_APP_SECRET}
+    app-secret: "${WEIXIN_APP_SECRET}"
     template_id: SUCgQgXEYgIB680j_Kx9CU4sPTDIpBpWF9NQDefqc0c
 
 # 支付宝支付 - 沙箱 https://opendocs.alipay.com/common/02kkv7
@@ -22,10 +22,10 @@ weixin:
 alipay:
   enabled: true
   app_id: 9021000166625040
-  merchant_private_key: ${ALIPAY_MERCHANT_PRIVATE_KEY}
-  alipay_public_key: ${ALIPAY_PUBLIC_KEY}
-  notify_url: http://xfg-studio.natapp1.cc/api/v1/alipay/alipay_notify_url
-  return_url: https://gaga.plus
+  merchant_private_key: "${ALIPAY_MERCHANT_PRIVATE_KEY}"
+  alipay_public_key: "${ALIPAY_PUBLIC_KEY}"
+  notify_url: https://mall.dabuw.online/api/v1/alipay/alipay_notify_url
+  return_url: https://mall.dabuw.online/orders
   gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
 
 

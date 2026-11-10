@@ -12,6 +12,8 @@ import org.example.common.constants.Constants;
 import org.example.dao.IOorderDao;
 import org.example.domain.po.PayOrder;
 import org.example.domain.req.ShopCartReq;
+import org.example.domain.po.PayOrder;
+import org.example.domain.res.OrderDetailRes;
 import org.example.domain.res.PayOrderRes;
 import org.example.domain.vo.ProductVO;
 import org.example.service.IOrderService;
@@ -23,6 +25,7 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -118,6 +121,36 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public boolean changeOrderClose(String orderId) {
         return orderDao.changeOrderClose(orderId);
+    }
+
+    @Override
+    public OrderDetailRes queryOrder(String orderId) {
+        return toDetail(orderDao.queryOrderByOrderId(orderId));
+    }
+
+    @Override
+    public List<OrderDetailRes> queryOrderList(String userId) {
+        List<PayOrder> list = orderDao.queryOrderList(userId, 50);
+        List<OrderDetailRes> result = new ArrayList<>(list.size());
+        for (PayOrder order : list) {
+            result.add(toDetail(order));
+        }
+        return result;
+    }
+
+    private OrderDetailRes toDetail(PayOrder order) {
+        if (null == order) {
+            return null;
+        }
+        return OrderDetailRes.builder()
+                .productId(order.getProductId())
+                .productName(order.getProductName())
+                .orderId(order.getOrderId())
+                .orderTime(order.getOrderTime())
+                .totalAmount(order.getTotalAmount())
+                .orderStatusVO(order.getStatus())
+                .payUrl(order.getPayUrl())
+                .build();
     }
 
     private PayOrder doPrepayOrder(String productId, String productName, String orderId, BigDecimal totalAmount) throws AlipayApiException {

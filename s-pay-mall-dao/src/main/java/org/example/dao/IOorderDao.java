@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;;
 import org.example.domain.po.PayOrder;
 
 import java.util.List;
@@ -16,6 +17,10 @@ public interface IOorderDao {
     void insert(PayOrder payOrder);
 
     PayOrder queryUnPayOrder(PayOrder payOrder);
+
+    PayOrder queryOrderByOrderId(@Param("orderId") String orderId);
+
+    List<PayOrder> queryOrderList(@Param("userId") String userId, @Param("limit") int limit);
 
     void updateOrderPayInfo(PayOrder payOrder);
 

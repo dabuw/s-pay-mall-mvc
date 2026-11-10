@@ -23,7 +23,7 @@ public class LoginController {
     @Resource
     private ILoginService loginService;
     /**
-     * http://xfg-studio.natapp1.cc/api/v1/login/weixin_qrcode_ticket
+     * https://mall.dabuw.online/api/v1/login/weixin_qrcode_ticket
      * @return
      */
     @RequestMapping(value = "weixin_qrcode_ticket", method = RequestMethod.GET)
@@ -46,7 +46,7 @@ public class LoginController {
     }
 
     /**
-     * http://xfg-studio.natapp1.cc/api/v1/login/check_login
+     * https://mall.dabuw.online/api/v1/login/check_login
      */
     @RequestMapping(value = "check_login", method = RequestMethod.GET)
     public Response<String> checkLogin(@RequestParam String ticket) {

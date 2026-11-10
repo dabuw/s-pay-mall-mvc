@@ -91,7 +91,7 @@ public class WeixinLoginServiceImpl implements ILoginService {
         WeixinTemplateMessageVO.put(data, WeixinTemplateMessageVO.TemplateKey.USER, openid);
 
         WeixinTemplateMessageVO templateMessageDTO = new WeixinTemplateMessageVO(openid, template_id);
-        templateMessageDTO.setUrl("https://gaga.plus");
+        templateMessageDTO.setUrl("https://dabuw.online");
         templateMessageDTO.setData(data);
 
         Call<Void> call = weixinApiService.sendMessage(accessToken, templateMessageDTO);

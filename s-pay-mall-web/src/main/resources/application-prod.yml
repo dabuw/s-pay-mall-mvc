@@ -7,3 +7,56 @@ server:
       min-spare: 10
     accept-count: 10
 
+
+# 微信公众号对接
+weixin:
+  config:
+    originalid: gh_f81ffc22a71a
+    token: b8b6
+    app-id: wxeb9d832b7cde6b57
+    app-secret: "${WEIXIN_APP_SECRET}"
+    template_id: SUCgQgXEYgIB680j_Kx9CU4sPTDIpBpWF9NQDefqc0c
+
+# 支付宝支付 - 沙箱 https://opendocs.alipay.com/common/02kkv7
+# 沙箱控制台：https://open.alipay.com/develop/sandbox/app
+alipay:
+  enabled: true
+  app_id: 9021000166625040
+  merchant_private_key: "${ALIPAY_MERCHANT_PRIVATE_KEY}"
+  alipay_public_key: "${ALIPAY_PUBLIC_KEY}"
+  notify_url: https://mall.dabuw.online/api/v1/alipay/alipay_notify_url
+  return_url: https://mall.dabuw.online/orders
+  gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+  # 日志
+  logging:
+    level:
+      root: info
+    config: classpath:logback-spring.xml
+
+spring:
+  datasource:
+    url: jdbc:mysql://mysql:3306/s-pay-mall?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-init-sql: SET time_zone = '+08:00'
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat

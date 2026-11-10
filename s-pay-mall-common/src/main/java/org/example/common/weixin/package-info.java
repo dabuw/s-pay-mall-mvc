@@ -1,6 +1,6 @@
 /**
  * @description
- * @author Fuzhengwei bugstack.cn @小傅哥
+ * @author dabuw
  * @create 2024-09-27 17:01
  */
 package org.example.common.weixin;
