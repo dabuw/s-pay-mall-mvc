@@ -18,6 +18,14 @@
 | 单元测试 | 需要 Spring 上下文 | domain 可纯 JVM 测试 |
 | 适合场景 | 业务简单、交付快、CRUD 多 | 规则复杂、长期演进、多人协作 |
 
+## 界面预览
+
+> 两版共用同一套前端与页面，截图取自在线演示（部署的是 DDD 版）。
+
+| 商城首页 | 微信扫码登录 |
+| --- | --- |
+| ![商城首页](docs/dev-ops/screenshots/home.png) | ![扫码登录](docs/dev-ops/screenshots/login.png) |
+
 ## 结构
 
 ```
